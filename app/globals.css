@@ -1603,3 +1603,110 @@ h1, h2, h3, h4 { font-weight: 800; }
 .saved-card .saved-heart { width: 34px; height: 34px; border: 0; border-radius: 11px; display: grid; place-items: center; background: #fff1ef; cursor: pointer; }
 .profile-hero::after { pointer-events: none; }
 .profile-top { position: relative; z-index: 2; }
+
+/* Readability pass: keep the compact app rhythm without micro-sized copy. */
+.bottom-nav button { font-size: 9px; }
+.mode-picker button small { font-size: 8.5px; line-height: 1.25; }
+.mode-hero span,
+.grow-hero-combined .grow-hero-intro > span { font-size: 8.5px; }
+.mode-hero p,
+.grow-hero-combined .grow-hero-intro p { color: #d0d0d0; font-size: 11px; line-height: 1.5; }
+.mode-hero button,
+.grow-hero-combined .grow-hero-intro > button { font-size: 10px; }
+
+.category-scroll {
+  grid-auto-rows: 94px;
+  gap: 12px 9px;
+}
+.category-scroll button { height: 94px; }
+.category-art { height: 92px; }
+.category-monochrome-icon { padding-bottom: 27px; }
+.category-monochrome-icon svg { width: 30px; height: 30px; }
+.category-scroll b {
+  left: 4px;
+  right: 4px;
+  bottom: 9px;
+  min-height: 18px;
+  font-size: 9.5px;
+  line-height: 1.15;
+  letter-spacing: -.025em;
+}
+.value-section .mini-deals b { font-size: 10.5px; line-height: 1.25; }
+.value-section .mini-deals small { font-size: 9px; line-height: 1.35; }
+
+.category-page-nav > span { font-size: 9px; }
+.category-hero-copy .eyebrow { font-size: 8.5px; }
+.category-hero-copy > p:not(.eyebrow) { color: #d0d0d0; font-size: 11px; line-height: 1.5; }
+.category-hero-copy > span { padding: 7px 9px; font-size: 8.5px; }
+.category-page-search input { font-size: 12.5px; }
+.nearest-category b { font-size: 12px; }
+.nearest-category small { color: #666; font-size: 9.5px; line-height: 1.3; }
+.subcategory-row button { height: 38px; padding: 0 14px; color: #4f4f4f; font-size: 10px; }
+.category-result-heading .eyebrow { font-size: 8px; }
+.category-result-heading h3 { font-size: 17px; }
+.category-result-heading > span { padding: 7px 9px; color: #555; font-size: 9px; }
+.category-directory-list small { font-size: 8.5px; line-height: 1.3; }
+.category-directory-list .partner-card-body > b { font-size: 13.5px; line-height: 1.25; }
+.category-directory-list .partner-card-body > p { color: #656565; font-size: 10px; line-height: 1.35; }
+.partner-card-meta i { padding: 4px 6px; font-size: 7.5px; }
+.category-directory-list .partner-card-body > em { font-size: 9px; line-height: 1.25; }
+
+.directory-filters button { height: 38px; padding: 0 14px; font-size: 10px; }
+.sort-row > span { font-size: 9px; }
+.sort-row button { height: 32px; font-size: 9px; }
+.directory-result-title b { font-size: 15px; }
+.directory-result-title span { font-size: 9px; }
+.directory-list small { font-size: 8.5px; line-height: 1.25; }
+.directory-list b { font-size: 12.5px; line-height: 1.25; }
+.directory-list p { font-size: 9.5px; line-height: 1.3; }
+.directory-list em { font-size: 8.5px; }
+
+.grow-inline-heading > span { font-size: 8px; }
+.grow-inline-heading > b { font-size: 17px; line-height: 1.2; }
+.grow-inline-heading > small { color: #c0c0c0; font-size: 9.5px; line-height: 1.45; }
+.grow-inline-grid button { min-height: 82px; height: auto; padding: 11px 10px; }
+.grow-inline-grid button b { font-size: 10.5px; line-height: 1.2; }
+.grow-inline-grid button small { color: #5f5f5f; font-size: 8.5px; line-height: 1.3; }
+.grow-path-reveal .grow-inline-heading > small { color: #606060; }
+.opportunity-list > button { min-height: 86px; }
+.opportunity-list small { font-size: 8px; }
+.opportunity-list b { font-size: 13px; }
+.opportunity-list p { color: #626262; font-size: 10px; line-height: 1.35; }
+.profile-progress small { font-size: 8px; }
+.profile-progress b { font-size: 13.5px; }
+.profile-progress p { color: #c0c0c0; font-size: 10px; line-height: 1.45; }
+.profile-progress button { font-size: 9.5px; }
+
+.work-header > p:last-child { color: #626262; font-size: 11px; line-height: 1.45; }
+.work-tabs button { height: 38px; font-size: 10px; }
+.creator-accepted small,
+.creator-earnings-card small { font-size: 8px; }
+.creator-accepted b,
+.creator-earnings-card b { font-size: 12px; }
+.creator-accepted p,
+.creator-earnings-card p { color: #b8b8b8; font-size: 9.5px; line-height: 1.35; }
+.creator-earnings-card p { color: #626262; }
+.creator-process > div small { font-size: 7.5px; line-height: 1.35; }
+.creator-process > p { color: #626262; font-size: 9.5px; line-height: 1.55; }
+
+.points-overview small { font-size: 8px; line-height: 1.25; }
+.points-overview span { font-size: 8.5px; }
+.missions b { font-size: 12px; }
+.missions small { font-size: 9px; }
+.missions em { font-size: 10px; }
+.challenge-spotlight > div > span { font-size: 8.5px; }
+.challenge-spotlight p { color: #c4c4c4; font-size: 10px; line-height: 1.5; }
+.challenge-progress small { font-size: 8px; }
+.challenge-spotlight button { font-size: 9.5px; }
+.reward-shop b { font-size: 12px; }
+.reward-shop small { color: #626262; font-size: 9.5px; line-height: 1.3; }
+.reward-shop em,
+.reward-shop article > button { font-size: 9px; }
+
+@media (max-width: 370px) {
+  .category-scroll { grid-auto-rows: 88px; column-gap: 6px; }
+  .category-scroll button { height: 88px; }
+  .category-art { width: 100%; height: 86px; }
+  .category-scroll b { bottom: 8px; font-size: 8.5px; }
+  .grow-inline-grid button small { font-size: 8px; }
+}

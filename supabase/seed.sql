@@ -1,0 +1,2 @@
+-- The product catalogue intentionally stays in the shared mobile/web fixture.
+-- User-owned rows are created through Auth and the application flows.

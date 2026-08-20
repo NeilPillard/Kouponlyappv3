@@ -1,0 +1,34 @@
+appId: com.kouponly.app
+---
+- launchApp:
+    clearState: true
+- tapOn: "Me"
+- tapOn:
+    id: "rewards-card"
+- assertVisible: "Complete. Earn. Redeem."
+- back
+- launchApp
+- tapOn: "Me"
+- scrollUntilVisible:
+    element:
+      id: "creator-dashboard-campaigns"
+    direction: DOWN
+- tapOn:
+    id: "creator-dashboard-campaigns"
+- launchApp:
+    clearState: true
+- tapOn:
+    id: "grow-mode"
+- tapOn:
+    id: "grow-open-paths"
+- tapOn:
+    id: "grow-path-creator"
+- scrollUntilVisible:
+    element:
+      id: "campaign-paragon-reel"
+    direction: DOWN
+- tapOn:
+    id: "campaign-paragon-reel"
+- tapOn:
+    id: "apply-campaign"
+- assertVisible: "Applied to Paragon in demo mode"

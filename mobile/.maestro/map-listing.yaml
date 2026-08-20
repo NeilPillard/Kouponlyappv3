@@ -1,0 +1,13 @@
+appId: com.kouponly.app
+---
+- launchApp:
+    clearState: true
+- tapOn: "Map"
+- assertVisible: "Map your next plan."
+- tapOn:
+    id: "map-pin-2"
+- assertVisible:
+    id: "map-preview"
+- tapOn:
+    id: "map-preview"
+- assertVisible: "Available offers"

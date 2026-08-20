@@ -1,0 +1,14 @@
+appId: com.kouponly.app
+---
+- launchApp:
+    clearState: true
+- tapOn: "Search"
+- tapOn:
+    id: "search-input"
+- inputText: "Starbucks"
+- pressKey: Enter
+- assertVisible: "Starbucks"
+- tapOn: "Starbucks"
+- back
+- assertVisible:
+    id: "search-results"

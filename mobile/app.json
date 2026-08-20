@@ -1,0 +1,48 @@
+{
+  "expo": {
+    "name": "Kouponly",
+    "slug": "kouponly",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "scheme": "kouponly",
+    "userInterfaceStyle": "automatic",
+    "ios": {
+      "supportsTablet": false,
+      "bundleIdentifier": "com.kouponly.app"
+    },
+    "android": {
+      "package": "com.kouponly.app",
+      "adaptiveIcon": {
+        "backgroundColor": "#0A0A0A"
+      },
+      "predictiveBackGestureEnabled": true,
+      "permissions": [
+        "android.permission.RECORD_AUDIO"
+      ]
+    },
+    "plugins": [
+      "expo-router",
+      "expo-sqlite",
+      "expo-web-browser",
+      [
+        "expo-image-picker",
+        {
+          "photosPermission": "Kouponly uses your photo library for your profile picture and creator campaign submissions.",
+          "cameraPermission": "Kouponly uses the camera for your profile picture and creator campaign submissions."
+        }
+      ]
+    ],
+    "experiments": {
+      "typedRoutes": true
+    },
+    "extra": {
+      "router": {
+        "origin": false
+      },
+      "eas": {
+        "projectId": "188f9032-015b-43e9-adf1-78035b39501f"
+      }
+    },
+    "owner": "kouponlys-team"
+  }
+}

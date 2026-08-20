@@ -1,0 +1,24 @@
+appId: com.kouponly.app
+---
+- launchApp:
+    clearState: true
+- pressKey: Escape
+- tapOn:
+    text: "Open"
+    optional: true
+- openLink: "kouponly://deal/11"
+- tapOn: "Open"
+- tapOn: "Open"
+- scrollUntilVisible:
+    element:
+      id: "redeem-offer-0"
+    direction: DOWN
+- tapOn:
+    id: "redeem-offer-0"
+- assertVisible: "Reveal your Kouponly code"
+- tapOn:
+    id: "reveal-code"
+- assertVisible: "CODE ACTIVE"
+- tapOn:
+    id: "active-code"
+- assertVisible: "Open partner website"

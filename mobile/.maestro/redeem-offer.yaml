@@ -1,0 +1,26 @@
+appId: com.kouponly.app
+---
+- launchApp:
+    clearState: true
+- scrollUntilVisible:
+    element:
+      id: "deal-2"
+    direction: DOWN
+- tapOn:
+    id: "deal-2"
+- tapOn:
+    id: "redeem-offer-0"
+- assertVisible: "Hand this phone to the partner"
+- tapOn:
+    id: "partner-pin"
+- inputText: "1111"
+- tapOn:
+    id: "verify-pin"
+- assertVisible: "That partner PIN is not valid. Try again."
+- tapOn:
+    id: "partner-pin"
+- eraseText: 4
+- inputText: "2468"
+- tapOn:
+    id: "verify-pin"
+- assertVisible: "Partner PIN accepted"

@@ -1710,3 +1710,113 @@ h1, h2, h3, h4 { font-weight: 800; }
   .category-scroll b { bottom: 8px; font-size: 8.5px; }
   .grow-inline-grid button small { font-size: 8px; }
 }
+
+/* Shared header system: every destination keeps the same clear top rhythm. */
+.status-bar { border-bottom: 1px solid rgba(10, 10, 10, .06); }
+
+.home-header,
+.page-header,
+.account-page > header,
+.work-header,
+.search-hero { position: relative; isolation: isolate; }
+
+.home-header,
+.page-header,
+.account-page > header,
+.work-header { min-height: 56px; }
+
+.home-header { padding: 3px 0 12px; }
+/* Home begins directly beneath the status bar; a smaller inset avoids a blank band
+   while preserving a comfortable touch-safe separation from the system chrome. */
+.explore-screen { padding-top: 12px; }
+.page-header { align-items: flex-start; gap: 16px; padding: 11px 1px 22px; }
+
+.page-header h2,
+.account-page > header h2,
+.work-header h2 { max-width: 300px; text-wrap: balance; }
+
+.page-header > div > p:last-child,
+.account-page > header > p:last-child,
+.work-header > p:last-child { max-width: 320px; }
+
+.count-badge,
+.points-pill,
+.round-btn,
+.profile-top button,
+.detail-nav button,
+.listing-detail-hero > button,
+.category-back,
+.inline-back { min-width: 44px; min-height: 44px; }
+
+.count-badge,
+.points-pill,
+.round-btn,
+.profile-top button,
+.detail-nav button,
+.listing-detail-hero > button,
+.category-back { display: grid; place-items: center; }
+
+.inline-back {
+  padding: 0 11px;
+  border-radius: 14px;
+  background: rgba(255, 255, 255, .78);
+  box-shadow: inset 0 0 0 1px rgba(10, 10, 10, .08);
+}
+
+.account-page > .inline-back,
+.work-screen > .inline-back { margin-top: 2px; }
+
+.account-page > header,
+.work-header { padding-top: 15px; padding-bottom: 21px; }
+
+.search-hero {
+  min-height: 136px;
+  padding: 23px 19px 19px;
+  border: 1px solid rgba(255, 255, 255, .12);
+  box-shadow: 0 10px 0 rgba(10, 10, 10, .08), 0 18px 34px rgba(10, 10, 10, .12);
+}
+
+.search-hero::after { box-shadow: inset 0 0 0 1px rgba(10, 10, 10, .08); }
+.category-destination-header { margin-top: 1px; }
+.category-page-nav,
+.detail-nav { min-height: 44px; }
+
+.detail-nav,
+.listing-detail-hero > button { top: 14px; }
+
+.detail-nav button,
+.listing-detail-hero > button {
+  border: 1px solid rgba(10, 10, 10, .08);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, .16);
+  backdrop-filter: blur(18px) saturate(160%);
+  -webkit-backdrop-filter: blur(18px) saturate(160%);
+}
+
+.map-toolbar { top: 9px; }
+.map-screen-title {
+  display: flex;
+  align-items: baseline;
+  gap: 7px;
+  width: max-content;
+  height: 28px;
+  margin: 0 0 7px 2px;
+  padding: 0 10px;
+  border: 1px solid rgba(255, 255, 255, .18);
+  border-radius: 12px;
+  background: rgba(10, 10, 10, .88);
+  color: white;
+  box-shadow: 0 8px 18px rgba(0, 0, 0, .16);
+}
+.map-screen-title span { font-size: 8px; font-weight: 900; letter-spacing: .12em; }
+.map-screen-title b { font-size: 12px; letter-spacing: -.02em; }
+.map-toolbar > label { min-height: 48px; border: 1px solid rgba(255, 255, 255, .9); }
+.map-toolbar > div button { min-height: 36px; }
+.profile-top { min-height: 44px; }
+
+@media (max-width: 370px) {
+  .page-header h2,
+  .account-page > header h2,
+  .work-header h2 { max-width: 250px; }
+  .page-header { gap: 10px; }
+  .map-screen-title b { font-size: 11px; }
+}

@@ -1,0 +1,15 @@
+appId: com.kouponly.app
+---
+- launchApp:
+    clearState: true
+- tapOn:
+    id: "category-mains"
+- assertVisible: "Mains"
+- tapOn: "Biryani"
+- assertVisible:
+    id: "category-results"
+- swipe:
+    direction: LEFT
+- tapOn:
+    id: "nearest-toggle"
+- assertVisible: "Nearest first"

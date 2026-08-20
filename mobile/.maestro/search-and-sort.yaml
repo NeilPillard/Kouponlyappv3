@@ -1,0 +1,15 @@
+appId: com.kouponly.app
+---
+- launchApp:
+    clearState: true
+- tapOn: "Search"
+- tapOn:
+    id: "search-input"
+- inputText: "IndiGo"
+- assertVisible: "IndiGo"
+- tapOn:
+    id: "sort-button"
+- tapOn:
+    id: "sort-Nearest"
+- assertVisible:
+    id: "search-results"

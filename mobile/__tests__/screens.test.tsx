@@ -1,0 +1,26 @@
+import React from "react";
+import { cleanup, fireEvent, render, waitFor } from "@testing-library/react-native";
+import AsyncStorage from "@react-native-async-storage/async-storage";
+import { SafeAreaProvider } from "react-native-safe-area-context";
+import { StoreProvider } from "../lib/store";
+import SearchScreen from "../app/(tabs)/search";
+import HomeScreen from "../app/(tabs)/index";
+import SavedScreen from "../app/(tabs)/saved";
+import WorkScreen from "../app/work";
+import RewardsScreen from "../app/rewards";
+import { RedemptionSheet } from "../components/RedemptionSheet";
+
+const frame={x:0,y:0,width:393,height:852};
+const wrapper=(node:React.ReactNode)=>render(<SafeAreaProvider initialMetrics={{frame,insets:{top:59,left:0,right:0,bottom:34}}}><StoreProvider>{node}</StoreProvider></SafeAreaProvider>);
+afterEach(async()=>{cleanup();await AsyncStorage.clear()});
+
+describe("major mobile screen states",()=>{
+  it("renders and filters the complete search catalogue",async()=>{const view=await wrapper(<SearchScreen/>);expect(view.getByText("150 things to explore")).toBeTruthy();await fireEvent.changeText(view.getByTestId("search-input"),"Cinepolis");expect(view.getByText("Cinepolis")).toBeTruthy();await fireEvent.press(view.getByTestId("sort-button"));expect(view.getByText("Nearest")).toBeTruthy()});
+  it("renders saved places, offers, and used segments",async()=>{const view=await wrapper(<SavedScreen/>);expect(view.getByText("Starbucks")).toBeTruthy();await fireEvent.press(view.getByTestId("saved-Offers"));expect(view.getByText("No saved offers yet")).toBeTruthy();await fireEvent.press(view.getByTestId("saved-Used"));expect(view.getByText("No used offers yet")).toBeTruthy()});
+  it("renders creator campaign and application states",async()=>{const view=await wrapper(<WorkScreen/>);expect(view.getByText("YOU’RE AN APPROVED CREATOR")).toBeTruthy();await fireEvent.press(view.getByTestId("campaign-paragon-reel"));expect(view.getByText("PARAGON · CREATOR BRIEF")).toBeTruthy();expect(view.getByTestId("apply-campaign")).toBeTruthy()});
+  it("renders the full Grow landing paths and opportunity actions",async()=>{const view=await wrapper(<HomeScreen/>);await fireEvent.press(view.getByText("Grow"));expect(view.getByText("Your talent. Real briefs. Real experience.")).toBeTruthy();expect(view.getByText("Jobs")).toBeTruthy();await fireEvent.press(view.getByTestId("grow-open-paths"));expect(view.getByTestId("grow-paths")).toBeTruthy();expect(view.getByText("Pick your Kouponly path")).toBeTruthy();expect(view.getByTestId("grow-path-creator")).toBeTruthy();expect(view.getByTestId("grow-opportunity-freelance")).toBeTruthy();expect(view.getByTestId("grow-profile-cta")).toBeTruthy()});
+  it("renders creator earnings, payout steps, and every website campaign",async()=>{const view=await wrapper(<WorkScreen/>);expect(view.getByTestId("creator-earnings")).toBeTruthy();expect(view.getByText("How creator work gets paid")).toBeTruthy();expect(view.getByText("Pick & apply")).toBeTruthy();expect(view.getByText("Create a beauty unboxing")).toBeTruthy();expect(view.getByText("Capture a pool-day story")).toBeTruthy();await fireEvent.press(view.getByTestId("track-bd"));expect(view.getByText("BD & Sales Internship")).toBeTruthy();await fireEvent.press(view.getByTestId("interest-bd"));expect(view.getByText("WHY ARE YOU INTERESTED?")).toBeTruthy();expect(view.getByTestId("submit-interest").props.accessibilityState.disabled).toBe(true)});
+  it("renders reward progress and unavailable reward states",async()=>{const view=await wrapper(<RewardsScreen/>);expect(view.getByText("Use 3 Kouponly discounts")).toBeTruthy();expect(view.getByText("220 POINTS SHORT")).toBeTruthy();expect(view.getByText("More ways to earn points")).toBeTruthy()});
+  it("runs the guest online redemption flow",async()=>{const view=await wrapper(<RedemptionSheet visible id="deal-10-0" title="Westside · Member price" mode="online" externalUrl="https://www.westside.com/" onClose={jest.fn()}/>);await waitFor(()=>expect(view.getByTestId("reveal-code")).toBeTruthy());await fireEvent.press(view.getByTestId("reveal-code"));await waitFor(()=>expect(view.getByTestId("active-code")).toBeTruthy());expect(view.getByText(/Complete it in/)).toBeTruthy();expect(view.getByText("Open partner website")).toBeTruthy()});
+  it("keeps physical vendors on partner PIN redemption",async()=>{const view=await wrapper(<RedemptionSheet visible id="deal-1-0" title="Paragon · Member price" mode="inStore" onClose={jest.fn()}/>);await waitFor(()=>expect(view.getByTestId("partner-pin")).toBeTruthy());await fireEvent.changeText(view.getByTestId("partner-pin"),"2468");await fireEvent.press(view.getByTestId("verify-pin"));await waitFor(()=>expect(view.getByText("Partner PIN accepted")).toBeTruthy())});
+});

@@ -453,6 +453,10 @@ export default function HomePage() {
   const [utilityDialog, setUtilityDialog] = useState<UtilityDialogData | null>(null);
   const [profileRewardsOpen, setProfileRewardsOpen] = useState(false);
 
+  useEffect(() => {
+    document.getElementById("app-scroll")?.scrollTo({ top: 0, behavior: "auto" });
+  }, [activeTab, selectedDeal, selectedListing, selectedCategory, accountPage, workOpen]);
+
   const notify = (message: string) => {
     const dialog = dialogForMessage(message);
     if (dialog) {
@@ -988,6 +992,7 @@ function MapView({ onSelect, notify }: { onSelect: (deal: Deal) => void; notify:
   const positions = [{ left: "15%", top: "28%" }, { left: "68%", top: "20%" }, { left: "43%", top: "42%" }, { left: "76%", top: "53%" }, { left: "22%", top: "61%" }, { left: "55%", top: "70%" }, { left: "36%", top: "18%" }, { left: "82%", top: "34%" }, { left: "12%", top: "47%" }, { left: "62%", top: "60%" }, { left: "30%", top: "75%" }, { left: "88%", top: "71%" }];
   return <div className="map-screen">
     <div className="map-toolbar">
+      <div className="map-screen-title" aria-hidden="true"><span>KOUPONLY MAP</span><b>Nearby in Kochi</b></div>
       <label><Search size={18} /><input value={mapQuery} onChange={(event) => { setMapQuery(event.target.value); if (event.target.value) setMapCategory("All"); }} placeholder="Find a partner or offer in Kochi" />{mapQuery && <button onClick={() => setMapQuery("")} aria-label="Clear map search"><X size={15} /></button>}</label>
       <div>{mapGroups.map((group) => <button key={group.label} className={mapCategory === group.label ? "active" : ""} onClick={() => { setMapCategory(group.label); setMapQuery(""); }}>{group.label}</button>)}</div>
     </div>
@@ -1005,6 +1010,9 @@ function MapView({ onSelect, notify }: { onSelect: (deal: Deal) => void; notify:
 
 function Profile({ notify, appliedCampaigns, onCreatorHub, onAccount, onBrowseDeals, openRewards, onRewardsOpened }: { notify: (message: string) => void; appliedCampaigns: Set<string>; onCreatorHub: () => void; onAccount: (page: AccountPageKey) => void; onBrowseDeals: () => void; openRewards: boolean; onRewardsOpened: () => void }) {
   const [view, setView] = useState<"main" | "rewards">("main");
+  useEffect(() => {
+    document.getElementById("app-scroll")?.scrollTo({ top: 0, behavior: "auto" });
+  }, [view]);
   useEffect(() => {
     if (!openRewards) return;
     setView("rewards");

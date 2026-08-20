@@ -1,0 +1,64 @@
+appId: com.kouponly.app
+---
+- launchApp:
+    clearState: true
+- tapOn: "Home"
+- assertVisible: "What’s the plan?"
+- tapOn:
+    id: "grow-mode"
+- assertVisible: "Your talent. Real briefs. Real experience."
+- tapOn:
+    id: "grow-open-paths"
+- assertVisible: "Pick your Kouponly path"
+- tapOn:
+    id: "grow-path-creator"
+- assertVisible: "YOU’RE AN APPROVED CREATOR"
+- tapOn:
+    id: "creator-earnings"
+- assertVisible: "Your earnings"
+- back
+- launchApp:
+    clearState: true
+- tapOn: "Home"
+- tapOn:
+    id: "grow-mode"
+- tapOn:
+    id: "grow-open-paths"
+- tapOn:
+    id: "grow-path-creator"
+- scrollUntilVisible:
+    element:
+      id: "creator-process"
+    direction: DOWN
+- assertVisible:
+    id: "creator-process"
+- scrollUntilVisible:
+    element:
+      id: "campaign-paragon-reel"
+    direction: DOWN
+- tapOn:
+    id: "campaign-paragon-reel"
+- assertVisible: "Film a dinner-for-two Reel"
+- tapOn:
+    id: "apply-campaign"
+- assertVisible: "Applied to Paragon in demo mode"
+- scrollUntilVisible:
+    element:
+      id: "track-bd"
+    direction: UP
+- tapOn:
+    id: "track-bd"
+- assertVisible: "BD & Sales Internship"
+- tapOn:
+    id: "interest-bd"
+- assertVisible: "WHY ARE YOU INTERESTED?"
+- tapOn:
+    id: "role-note"
+- inputText: "I enjoy meeting local brands and have led college events."
+- scrollUntilVisible:
+    element:
+      id: "submit-interest"
+    direction: DOWN
+- tapOn:
+    id: "submit-interest"
+- assertVisible: "Interest sent"

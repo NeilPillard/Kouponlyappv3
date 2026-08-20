@@ -1,0 +1,10 @@
+appId: com.kouponly.app
+---
+- launchApp:
+    clearState: true
+- assertVisible: "What’s the plan?"
+- tapOn:
+    id: "account-menu"
+- assertVisible: "Savings history"
+- tapOn: "Settings"
+- assertVisible: "Settings"

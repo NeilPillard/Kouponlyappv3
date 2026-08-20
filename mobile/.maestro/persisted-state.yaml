@@ -1,0 +1,27 @@
+appId: com.kouponly.app
+---
+- launchApp:
+    clearState: true
+- pressKey: Escape
+- tapOn:
+    text: "Open"
+    optional: true
+- tapOn: "Home"
+- scrollUntilVisible:
+    element:
+      id: "deal-2"
+    direction: DOWN
+- tapOn:
+    id: "deal-2"
+- swipe:
+    direction: UP
+- tapOn: "Save this offer"
+- stopApp
+- launchApp
+- launchApp
+- swipe:
+    direction: UP
+- tapOn:
+    id: "account-menu"
+- tapOn: "Saved offers"
+- assertVisible: "Starbucks"

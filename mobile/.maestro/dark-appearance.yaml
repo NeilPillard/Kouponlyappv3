@@ -1,0 +1,9 @@
+appId: com.kouponly.app
+---
+- launchApp:
+    clearState: true
+- assertVisible: "What’s the plan?"
+- tapOn: "Search"
+- assertVisible: "Everything, one search."
+- tapOn: "Me"
+- assertVisible: "Neil Jose Pillard"
